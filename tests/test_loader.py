@@ -1,4 +1,4 @@
-from mypyconf.loader import *
+from mypyconf.loader import load, store_to_file
 from dotenv import load_dotenv
 import unittest
 
