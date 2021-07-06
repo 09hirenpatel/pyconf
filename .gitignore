@@ -1,0 +1,4 @@
+venv
+mypyconf.egg-info
+dist
+build
