@@ -1,9 +1,15 @@
-from mypyconf.loader import load, store_to_file, set_to_enviornment
-from dotenv import load_dotenv
+from mypyconf.loader import load, store_to_file, set_to_environment
 import unittest
+import os
+import shutil
 
 
 class TestStringMethods(unittest.TestCase):
+
+    def setUp(self):
+        if os.path.exists("sample/output"):
+            shutil.rmtree("sample/output")
+        os.mkdir("sample/output")
 
     def test_load_yaml_file_not_exist(self):
         try:
@@ -26,29 +32,39 @@ class TestStringMethods(unittest.TestCase):
 
     def test_load_yaml_store_to_json(self):
         data = load("sample/test.yaml")
-        store_to_file(data, "sample/test1.json")
+        store_to_file(data, "sample/output/test1.json")
         assert 1 == 1
+
+    def test_load_yaml_store_to_file__exist(self):
+        try:
+            data = load("sample/test.yaml")
+            store_to_file(data, "sample/output/test1.json")
+            data = load("sample/test.cfg")
+            store_to_file(data, "sample/output/test1.json")
+            assert 1 == 0
+        except FileExistsError:
+            assert 1 == 1
 
     def test_load_config_store_to_json(self):
         data = load("sample/test.cfg")
-        
-        store_to_file(data, "sample/test1.json")
+
+        store_to_file(data, "sample/output/test2.json")
         assert 1 == 1
 
     def test_load_yaml_store_to_env_file(self):
         data = load("sample/test.yaml")
         
-        store_to_file(data, "sample/test1.env")
+        store_to_file(data, "sample/output/test1.env")
         assert 1 == 1
 
     def test_load_config_store_to_env_file(self):
         data = load("sample/test.cfg")
-        store_to_file(data, "sample/test1.env")
+        store_to_file(data, "sample/output/test2.env")
         assert 1 == 1
 
     def test_load_config_store_to_os_env(self):
         data = load("sample/test.cfg")
-        set_to_enviornment(data)
+        set_to_environment(data)
         assert 1 == 1
 
 
