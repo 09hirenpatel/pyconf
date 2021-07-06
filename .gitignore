@@ -2,3 +2,5 @@ venv
 mypyconf.egg-info
 dist
 build
+*.pyc
+.idea
