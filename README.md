@@ -8,7 +8,10 @@ MyPyconf is a Python library to read configuration files from .yaml, .cfg anf .c
 ## Installation
 
 ```bash
-Git clone
+git clone https://github.com/09hirenpatel/pyconf.git
+cd pyconf 
+python3 setup.
+
 ```
   
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
