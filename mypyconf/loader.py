@@ -10,15 +10,21 @@ def load(filename):
             name, extension = os.path.splitext(filename)
             if extension == ".yaml" or extension == ".yml":
                 with open(filename, 'r') as file:
-                    return yaml.load(file, Loader=yaml.FullLoader)
+                    try:
+                        return yaml.load(file, Loader=yaml.FullLoader)
+                    except Exception as err:
+                        raise Exception("Unable to parse the file")
             elif extension == ".cfg" or extension == ".conf":
                 config = configparser.RawConfigParser(allow_no_value=True)
-                config.read(filename)
+                try:
+                    config.read(filename)
+                except Exception as err:
+                    raise Exception("Unable to parse the file")
                 return {s: dict(config.items(s)) for s in config.sections()}
             else:
-                raise Exception("Output file format not supported")
+                raise Exception("File format not supported")
         else:
-            raise Exception("Output file is directory path")
+            raise Exception("File path is targeting to directory. Only file path are allowed")
     else:
         raise FileNotFoundError
 
