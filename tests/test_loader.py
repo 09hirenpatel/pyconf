@@ -67,6 +67,20 @@ class TestStringMethods(unittest.TestCase):
         set_to_environment(data)
         assert 1 == 1
 
+    def test_load_bad_config_cfg(self):
+        try:
+            load("sample/bad_test.cfg")
+            assert 1 == 0
+        except Exception as err:
+            assert err.__str__() == "Unable to parse the file"
+
+    def test_load_bad_config_yaml(self):
+        try:
+            load("sample/bad_test.yaml")
+            assert 1 == 0
+        except Exception as err:
+            assert err.__str__() == "Unable to parse the file"
+
 
 
 
