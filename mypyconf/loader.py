@@ -31,8 +31,6 @@ def store_to_file(obj, outfile):
                 json.dump(obj, f)
 
         elif extension.lower() == ".env":
-            print(str(obj)[1:-2])
-
             with open(outfile, "w") as f:
                 output = ""
                 for i in obj.keys():
@@ -45,3 +43,8 @@ def store_to_file(obj, outfile):
 
     else:
         raise FileExistsError
+
+
+def set_to_enviornment(obj):
+    for i in obj.keys():
+        os.environ[i] = json.dumps(obj[i])

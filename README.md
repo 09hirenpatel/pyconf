@@ -53,4 +53,17 @@ data = {
 }
 store_to_file(data, "sample/test1.env")
 
+```  
+
+
+To write python dict to the os environment .
+
+```python
+from mypyconf.loader import set_to_enviornment
+
+data = {
+    "UserName": "UserName",
+    "Email": "UserName@Email.com"
+}
+set_to_enviornment(data)
 ```
