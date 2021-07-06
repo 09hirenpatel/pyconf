@@ -53,6 +53,14 @@ data = {
 }
 store_to_file(data, "sample/test1.env")
 
+
+# to write python dict to env file even if file exist
+data = {
+    "UserName": "UserName",
+    "Email": "UserName@Email.com"
+}
+store_to_file(data, "sample/test1.env", if_exist_ok = True)
+
 ```  
 
 

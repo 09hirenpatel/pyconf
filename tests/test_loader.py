@@ -4,7 +4,7 @@ import os
 import shutil
 
 
-class TestStringMethods(unittest.TestCase):
+class TestMethods(unittest.TestCase):
 
     def setUp(self):
         if os.path.exists("sample/output"):
@@ -44,6 +44,16 @@ class TestStringMethods(unittest.TestCase):
             assert 1 == 0
         except FileExistsError:
             assert 1 == 1
+
+    def test_load_yaml_store_even_if_file_exist(self):
+        try:
+            data = load("sample/test.yaml")
+            store_to_file(data, "sample/output/test1.json")
+            data = load("sample/test.cfg")
+            store_to_file(data, "sample/output/test1.json", if_exist_ok=True)
+            assert 1 == 1
+        except FileExistsError:
+            assert 1 == 0
 
     def test_load_config_store_to_json(self):
         data = load("sample/test.cfg")
