@@ -56,7 +56,10 @@ def store_to_file(obj, outfile, if_exist_ok = False):
         else:
             raise Exception("Output File format not supported")
     else:
-        raise FileExistsError
+        if os.path.isfile(outfile):
+            raise FileExistsError
+        else:
+            raise Exception("Output file is directory path")
 
 
 def set_to_environment(obj):

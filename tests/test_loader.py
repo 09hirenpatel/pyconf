@@ -196,11 +196,14 @@ class TestMethods(unittest.TestCase):
         except Exception as err:
             assert err.__str__() == "Only Dict is allowed"
 
-
-
-
-
-
+    def test_can_not_save_to_directory(self):
+        try:
+            store_to_file({
+                1: 1
+            }, "sample", if_exist_ok=True)
+            assert 1 == 0
+        except Exception as err:
+            assert err.__str__() == "Output file is directory path"
 
 
 
