@@ -91,6 +91,100 @@ class TestMethods(unittest.TestCase):
         except Exception as err:
             assert err.__str__() == "Unable to parse the file"
 
+    def test_can_not_dir_path(self):
+        try:
+            load("sample")
+            assert 1 == 0
+        except Exception as err:
+            assert err.__str__() == "File path is targeting to directory. Only file path are allowed"
+
+    def test_can_not_load_text(self):
+        try:
+            load("sample/test.txt")
+            assert 1 == 0
+        except Exception as err:
+            assert err.__str__() == "File format not supported"
+
+    def test_can_not_save_other_then_dict(self):
+        try:
+            store_to_file( [1], "sample/test.json")
+            assert 1 == 0
+        except Exception as err:
+            assert err.__str__() == "Only Dict is allowed"
+
+    def test_can_not_save_to_another_format(self):
+        try:
+            store_to_file({
+                1: 1
+            }, "sample/test.text")
+            assert 1 == 0
+        except Exception as err:
+            assert err.__str__() == "Output File format not supported"
+
+    def test_can_get_exact_all_keys_for_cfg(self):
+        try:
+            data = {
+                "mysqld" : {
+                    "user": 0,
+                    "pid-file": 0,
+                    "skip-external-locking": 0,
+                    "old_passwords": 0,
+                    "skip-bdb": 0,
+                    "skip-innodb": 0,
+                }
+            }
+            output = load("sample/test.cfg")
+
+            assert data.keys().__len__() ==  output.keys().__len__()
+            assert data['mysqld'].keys().__len__() == output['mysqld'].keys().__len__()
+
+        except Exception as err:
+            print(err)
+            assert 1 == 0
+
+    def test_can_get_exact_all_keys_for_yaml(self):
+        try:
+            data = {
+                "instance" : {
+                    "Id" : 0 ,
+                    "environment" : 0 ,
+                    "serverId" : 0 ,
+                    "awsHostname" : 0 ,
+                    "serverName" : 0 ,
+                    "ipAddr" : 0 ,
+                    "roles" : 0 ,
+                }
+            }
+            output = load("sample/test.yaml")
+
+            assert data.keys().__len__() ==  output.keys().__len__()
+            assert data['instance'].keys().__len__() == output['instance'].keys().__len__()
+
+        except Exception as err:
+            print(err)
+            assert 1 == 0
+
+    def test_set_environment(self):
+        try:
+            data = {
+                "my_variable" : 100
+            }
+
+            set_to_environment(data)
+            assert os.environ.get('my_variable') == '100'
+        except Exception as err:
+            print(err)
+            assert 1 == 0
+
+
+
+
+
+
+
+
+
+
 
 
 

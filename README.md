@@ -5,13 +5,21 @@ MyPyconf is a Python library to read configuration files from .yaml, .cfg anf .c
 ## Requirements
 python 3.6
 
-## Installation
 
+## Build and Installation
+
+###Get
 ```bash
 git clone https://github.com/09hirenpatel/pyconf.git
 cd pyconf 
 ```
+
+###Build
+```bash 
+python3 setup.py bdist_wheel
+```
   
+###Install
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pyconf.
 
 ```bash

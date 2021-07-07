@@ -1,1 +1,1 @@
-from tests.test_loader import TestStringMethods
+from tests.test_loader import TestMethods
