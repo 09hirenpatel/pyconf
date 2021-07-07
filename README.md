@@ -8,18 +8,19 @@ python 3.6
 
 ## Build and Installation
 
-###Get
+Get
 ```bash
 git clone https://github.com/09hirenpatel/pyconf.git
 cd pyconf 
 ```
 
-###Build
+Build
 ```bash 
 python3 setup.py bdist_wheel
 ```
   
-###Install
+Install
+
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pyconf.
 
 ```bash
