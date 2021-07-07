@@ -7,6 +7,9 @@ setup(
     author='09hirenpatel',
     license='MIT',
     install_requires=[
+        'wheel',
+        'setuptools',
+        'twine',
         'pyyaml',
         'configparser',
     ],
