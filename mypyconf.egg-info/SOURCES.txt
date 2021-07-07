@@ -1,8 +1,0 @@
-README.md
-setup.py
-mypyconf/__init__.py
-mypyconf/loader.py
-mypyconf.egg-info/PKG-INFO
-mypyconf.egg-info/SOURCES.txt
-mypyconf.egg-info/dependency_links.txt
-mypyconf.egg-info/top_level.txt
