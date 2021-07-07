@@ -176,6 +176,17 @@ class TestMethods(unittest.TestCase):
             print(err)
             assert 1 == 0
 
+    def test_set_non_dict_object_to_environment(self):
+        try:
+            data = [1]
+            set_to_environment(data)
+            assert  1 == 0
+
+        except Exception as err:
+            print(err)
+
+            assert err.__str__() == "Only Dict is allowed"
+
 
 
 

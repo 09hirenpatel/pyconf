@@ -60,5 +60,8 @@ def store_to_file(obj, outfile, if_exist_ok = False):
 
 
 def set_to_environment(obj):
+    if type(obj) != dict:
+        raise Exception("Only Dict is allowed")
+
     for i in obj.keys():
         os.environ[i] = json.dumps(obj[i])

@@ -1,6 +1,6 @@
 # MyPyconf
 
-MyPyconf is a Python library to read configuration files from .yaml, .cfg anf .conf and write python dict to .json, .env or os environments.   
+MyPyconf is a Python library to read configuration files from .yaml, .cfg and .conf and write python dict to .json, .env or write directly to the os environments.   
 
 ## Requirements
 python 3.6
@@ -23,7 +23,7 @@ python3 setup.py bdist_wheel
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pyconf.
 
 ```bash
-pip install dist/mypyconf-0.1.0-py3-none-any.whl
+pip install /path/to/wheelfile.whl
 ```
 
 ## Usage
