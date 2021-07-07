@@ -13,8 +13,18 @@ Get
 git clone https://github.com/09hirenpatel/pyconf.git
 cd pyconf 
 ```
+NOTE: To directly use this library, Skip to Installation step. Required installable file is already provided with repo.
 
-Build
+To Build
+
+Install Requirement:
+```bash 
+pip install wheel
+pip install setuptools
+pip install twine
+ ```
+
+Build using command below
 ```bash 
 python3 setup.py bdist_wheel
 ```
@@ -24,7 +34,13 @@ Install
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pyconf.
 
 ```bash
-pip install /path/to/wheelfile.whl
+pip install /path/to/wheelfile.whl    
+```
+
+For direct installation use path  "dist/mypyconf-0.1.0-py3-none-any.whl" from inside pyconf folder.
+
+```bash
+pip install dist/mypyconf-0.1.0-py3-none-any.whl
 ```
 
 ## Usage
