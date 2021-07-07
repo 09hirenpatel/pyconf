@@ -167,11 +167,22 @@ class TestMethods(unittest.TestCase):
     def test_set_environment(self):
         try:
             data = {
+                "my_variable" : 100
+            }
+            set_to_environment(data)
+            assert os.environ.get('my_variable') == "100"
+        except Exception as err:
+            print(err)
+            assert 1 == 0
+
+    def test_set_environment_None(self):
+        try:
+            data = {
                 "my_variable" : None
             }
 
             set_to_environment(data)
-            assert os.environ.get('my_variable') == '100'
+            assert os.environ.get('my_variable') == "null"
         except Exception as err:
             print(err)
             assert 1 == 0
@@ -183,8 +194,6 @@ class TestMethods(unittest.TestCase):
             assert  1 == 0
 
         except Exception as err:
-            print(err)
-
             assert err.__str__() == "Only Dict is allowed"
 
 
