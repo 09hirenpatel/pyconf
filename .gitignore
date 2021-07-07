@@ -2,6 +2,3 @@ venv
 *.pyc
 .idea
 __pycache__
-build
-dist
-mypyconf.egg-info
