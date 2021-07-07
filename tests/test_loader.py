@@ -167,7 +167,7 @@ class TestMethods(unittest.TestCase):
     def test_set_environment(self):
         try:
             data = {
-                "my_variable" : 100
+                "my_variable" : None
             }
 
             set_to_environment(data)
